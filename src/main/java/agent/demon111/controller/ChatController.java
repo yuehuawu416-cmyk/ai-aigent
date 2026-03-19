@@ -1,4 +1,6 @@
 package agent.demon111.controller;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,8 +28,8 @@ import agent.demon111.service.ChatService;
         return chatService.chat(request);
     }
     @GetMapping("/history")
-    public String getMethodName(@RequestParam String param) {
-        return new String();
+    public List<ChatResponse> getChatHistory(@RequestParam long userId) {
+        return chatService.getChatHistory(userId);
     }
     
 }
